@@ -1,7 +1,11 @@
-export default LAYOUT_CONFIG = [
+import Home from '@/pages/home/Home';
+
+export const LAYOUT_CONFIG = [
   {
     path: '/home',
     title: '首页',
-    component: '@/pages/home/Home',
+    component: () => <Home />,
   },
 ];
+
+export default LAYOUT_CONFIG;

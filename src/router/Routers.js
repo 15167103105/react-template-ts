@@ -1,22 +1,32 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { LAYOUT_CONFIG } from './LAYOUT_CONFIG';
+import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
+import { LAYOUT_CONFIG } from '@/router/LAYOUT_CONFIG';
+import { CONFIG } from '@/router/CONFIG';
+import NotFound from '@/pages/notFound/NotFound';
 
-export default function Routers() {
+export default function Router() {
   return (
-    <div>
+    <BrowserRouter>
       <Switch>
+      <Redirect exact from="/" to="/home" />
         {
           LAYOUT_CONFIG.map(item => {
             let { component: Component, path, title } = item;
             return (
-              <Route path={path}>
-                <Component title={title} />
-              </Route>
+              <Route path={path} component={Component} title={title} key={item.path} />
             );
-          });
+          })
         }
+        {
+          CONFIG.map(item => {
+            let { component: Component, path, title } = item;
+            return (
+              <Route path={path} component={Component} title={title} key={item.path} />
+            );
+          })
+        }
+        <Route component={NotFound} />
       </Switch>
-    </div>
+    </BrowserRouter>
   )
 }
