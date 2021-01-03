@@ -6,5 +6,5 @@ export default function NotFound() {
     <div className={Style.content}>
       当前页面不存在
     </div>
-  )
+  );
 }
