@@ -3,7 +3,7 @@ import NotFound from '@/pages/notFound/NotFound';
 
 export const CONFIG = [
   {
-    path: '/detial',
+    path: '/detail',
     title: '详情',
     component: () => <Detail />,
   },
