@@ -1,3 +1,4 @@
+import React from 'react';
 import Detail from '@/pages/detail/Detail';
 import NotFound from '@/pages/notFound/NotFound';
 
