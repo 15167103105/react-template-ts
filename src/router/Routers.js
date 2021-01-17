@@ -1,16 +1,15 @@
 /* eslint-disable no-tabs */
 import React, { Suspense } from 'react';
 import {
-  Switch, Route, Router, Redirect,
+  Switch, Route, Redirect, BrowserRouter as Router,
 } from 'react-router-dom';
 import { LAYOUT_CONFIG } from '@/router/LAYOUT_CONFIG';
 import { CONFIG } from '@/router/CONFIG';
 import NotFound from '@/pages/notFound/NotFound';
-import { createHashHistory } from 'history';
 
 export default function Routers() {
   return (
-    <Router history={createHashHistory()}>
+    <Router>
       <Suspense fallback={<div> Loading... </div>}>
         <Switch>
           <Redirect exact from="/" to="/home" />
