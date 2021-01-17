@@ -1,11 +1,10 @@
-import React from 'react';
-import Home from '@/pages/home/Home';
+import { lazy } from 'react';
 
 export const LAYOUT_CONFIG = [
   {
     path: '/home',
     title: '首页',
-    component: () => <Home />,
+    component: lazy(() => import('@/pages/home/Home')),
   },
 ];
 

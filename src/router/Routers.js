@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-tabs */
+import React, { Suspense } from 'react';
 import {
   Switch, Route, Router, Redirect,
 } from 'react-router-dom';
@@ -10,26 +11,28 @@ import { createHashHistory } from 'history';
 export default function Routers() {
   return (
     <Router history={createHashHistory()}>
-      <Switch>
-      <Redirect exact from="/" to="/home" />
-        {
-          LAYOUT_CONFIG.map((item) => {
-            let { component: Component, path, title } = item;
-            return (
-              <Route path={path} title={title} key={item.path} component={Component} />
-            );
-          })
-        }
-        {
-          CONFIG.map((item) => {
-            let { component: Component, path, title } = item;
-            return (
-              <Route path={path} component={Component} title={title} key={item.path} />
-            );
-          })
-        }
-        <Route component={NotFound} />
-      </Switch>
+      <Suspense fallback={<div> Loading... </div>}>
+        <Switch>
+          <Redirect exact from="/" to="/home" />
+          {
+            LAYOUT_CONFIG.map((item) => {
+              let { component: Component, path, title } = item;
+              return (
+                <Route path={path} title={title} key={item.path} component={Component} />
+              );
+            })
+          }
+          {
+            CONFIG.map((item) => {
+              let { component: Component, path, title } = item;
+              return (
+                <Route path={path} component={Component} title={title} key={item.path} />
+              );
+            })
+          }
+          <Route component={NotFound} />
+        </Switch>
+			</Suspense>
     </Router>
   );
 }

@@ -1,17 +1,15 @@
-import React from 'react';
-import Detail from '@/pages/detail/Detail';
-import NotFound from '@/pages/notFound/NotFound';
+import { lazy } from 'react';
 
 export const CONFIG = [
   {
     path: '/detail',
     title: '详情',
-    component: () => <Detail />,
+    component: lazy(() => import('@/pages/detail/Detail')),
   },
   {
     path: '/not_found',
     title: '页面不存在',
-    component: () => <NotFound />,
+    component: lazy(() => import('@/pages/notFound/NotFound')),
   },
 ];
 

@@ -1,12 +1,10 @@
 import React from 'react';
+// import { Link } from 'react-router';
 
 export default function Home() {
-  const handleClick = () => {
-    console.log('1');
-  };
   return (
-    <div onClick={() => handleClick()}>
-      Home
+    <div>
+      Home To Detail
     </div>
   );
 }
